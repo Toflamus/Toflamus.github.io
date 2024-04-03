@@ -3,7 +3,7 @@
     "name": "Chaolong Wang",
     "label": "Chemical Engineering Student",
     "image": "",
-    "email_1": "chaolong.wang@spc.ox.ac.uk, wang-cl21@mails.tsinghua.edu.cn",
+    "email": "chaolong.wang@spc.ox.ac.uk, wang-cl21@mails.tsinghua.edu.cn",
     "phone": "+44 7884900983",
     "url": "https://Toflamus.github.io/Toflamus/",
     "summary": "Physical Chemistry, Batteries, Engineering, ML, DL",
@@ -54,7 +54,7 @@
       "startDate": "2021-08",
       "endDate": "Not yet",
       "score": "Not yet",
-      "main courses": ["Physical Chemistry"]
+      "main courses": ["Physical Chemistry", "Orginic Chemistry"]
     }
   ],
   "awards": [
