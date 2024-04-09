@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='#'>Tsinghua University, University of Oxford </a>. OX1 2DL St' Peter's College. +44 7884900983, +86 18722237287. A man is never old when his regret replace his dream.
 
 profile:
   align: right
