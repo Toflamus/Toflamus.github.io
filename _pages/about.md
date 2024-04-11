@@ -25,5 +25,3 @@ I am a undergraduate student of Tsinghua University. With one year visiting expe
 Key words: Physical Chemistry, Machine Learning.  
 
 If you want to know more about me, please tour around the website or click links below.  
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
