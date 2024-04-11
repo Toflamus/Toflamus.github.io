@@ -28,7 +28,7 @@
       "position": "Student Ambassador",
       "url": "https://tappage.theaccessplatform.com",
       "startDate": "2024-04-09",
-      "endDate": "2024-04-012",
+      "endDate": "2024-04-12",
       "summary": "Help the event go smoothly",
       "highlights": ["Wow"]
     }
@@ -52,9 +52,9 @@
       "area": "Chemical Biology + Chemical and bio-industrial Engineering",
       "studyType": "BA",
       "startDate": "2021-08",
-      "endDate": "Not yet",
+      "endDate": "2025-07",
       "score": "Not yet",
-      "main courses": ["Physical Chemistry", "Orginic Chemistry"]
+      "main_courses": ["Physical Chemistry", "Orginic Chemistry"]
     }
   ],
   "awards": [
@@ -116,7 +116,7 @@
       "name": "Drawing",
       "icon": "fa-solid fa-tag",
       "keywords": [
-        "Anime"
+        "Anime", "Manga"
       ]
     }
   ],
