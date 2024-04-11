@@ -4,7 +4,7 @@ title: Small Language Model
 description: A small language model with 3M parameters and GPT-2 Architecture
 img: assets/img/12.jpg
 importance: 1
-category: Language Models
+category: work
 related_publications: true
 ---
 
