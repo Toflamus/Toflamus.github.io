@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
+title: Small Language Model
+description: A small language model with 3M parameters and GPT-2 Architecture
 img: assets/img/12.jpg
 importance: 1
-category: work
+category: Language Models
 related_publications: true
 ---
 
