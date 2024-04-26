@@ -126,7 +126,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Toflamus's blogs # blog_name will be displayed in your blog page
+blog_name: Toflamus' blogs # blog_name will be displayed in your blog page
 blog_description: Post everything!
 permalink: /blog/:year/:title/
 
