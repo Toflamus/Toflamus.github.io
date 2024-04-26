@@ -162,7 +162,7 @@ disqus_shortname: al-folio # put your disqus shortname
 # you can display them in your blog by adding a link to the RSS feed.
 external_sources:
   - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
+    rss_url: https://medium.com/@toflamus12138/feed
 
 # -----------------------------------------------------------------------------
 # Collections
@@ -290,8 +290,8 @@ display_categories: ["blockquotes"] # these categories will be displayed on the 
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Wang]
+  first_name: [Chaolong, C.]
 
   style: apa
   locale: en
