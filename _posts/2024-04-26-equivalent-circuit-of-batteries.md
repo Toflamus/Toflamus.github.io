@@ -26,10 +26,7 @@ toc:
 
 This blog is a summary of the problems and concerns one may encounter when consider the battery system. Detailed formulas are not included just a general description.  
 
-Some notes and insights from <a href="https://www.amazon.co.uk/Battery-Management-Systems-Modeling-Engineering/dp/1630810231">L.Plett's book</a>  
-Also from the lecture notes of C26, used without permission but I did cite something.  
-
-## Open circuit voltage(OCV) and State of Charge(SOC) dependence
+## Open circuit voltage(OCV) and State of Charge(SOC) dependence <d-cite key="BMS_vol1"></d-cite>  
 
 The first thing one thinks to build a equivalent circuit is to ADD a *voltage source* to the circuit. From high school physics, the *open circuit voltage* is supposed to be the voltage at infinite large load, which means the current density is approximately zero. I previously thinks that the OCV may related to current density, diffusion, kinetics. However, I misunderstood the concept of OCV it is not working. Ideally there is no current, consequently no diffusion and kinetics problems. It should be more stable then I had thought.  
 
