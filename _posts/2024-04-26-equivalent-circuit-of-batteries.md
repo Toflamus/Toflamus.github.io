@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: distill
 title: Build a equivalent circuit of batteries from scratch
 date: 2024-04-26 14:25:00
 description: First blog! 
