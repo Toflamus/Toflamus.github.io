@@ -25,7 +25,16 @@ with the ongoing of reaction the activity is also changed. OK, one may argue tha
 
 **In summary: the circuit we build now is composed of a SOC dependent voltage source.**  
 
-By the way, one may come up with the question: **How to test the SOC and OCV relationships?**. Naturally, we may think of a simple method that we charge/discharge the battery to different SOC and wait it to reach equilibrium. This technique is called *Galvanostatic internmittent titration test(GITT)*. The method involves a small charge/discharge and then a long rest period to allow the cell to equilibrate. Then the voltages at the end of the periods are taken as the OCV. <d-cite key="C26_2"></d-cite>
+By the way, one may come up with the question: **How to test the SOC and OCV relationships?**. Naturally, we may think of a simple method that we charge/discharge the battery to different SOC and wait it to reach equilibrium. This technique is called *Galvanostatic internmittent titration test(GITT)*. The method involves a small charge/discharge and then a long rest period to allow the cell to equilibrate. Then the voltages at the end of the periods are taken as the OCV. <d-cite key="C26_2"></d-cite>  
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/2024-04-26-equivalent-circuit-of-batteries/GITT.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Here is an typical graphic example of GITT<d-cite key="LIBOCVmodel"></d-cite>  
+</div>
 
 
 
