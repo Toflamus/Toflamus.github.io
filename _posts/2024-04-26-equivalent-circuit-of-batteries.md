@@ -64,6 +64,8 @@ Some other concepts and their definitions:
 - *discharge capacity*: total charge removed from SOC = 100% to some cut off voltage where SOC > 0%.
 - *depth of discharge(DOD)*: $DOD = 1 - SOC$
 
+OK now I am gonna say that what has been built above is straight forward but a lot too simple.There are a lot of things to be taken into account. *Randles circuit*, *Warburg impedence*   
+
 ## 
 
 
