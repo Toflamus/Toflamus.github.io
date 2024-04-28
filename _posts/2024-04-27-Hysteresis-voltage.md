@@ -3,7 +3,7 @@ layout: distill
 title: Hysteresis voltage modeling
 date: 2024-04-27 14:25:00
 description: Simple introduce hysteresis voltage and its phenomenological modeling
-tags: batteries lithium-ion battery-study
+tags: batteries longposts lithium-ion
 categories: battery-study
 
 bibliography: 2024-04-27-Hysteresis-voltage.bib

@@ -6,7 +6,7 @@ description: A simple introduction to battery management systems based on L. Ple
 tags: batteries lithium-ion battery-study
 categories: battery-study
 
-bibliography: # To be continued
+bibliography: 2024-04-27-Hysteresis-voltage.bib
 toc:
   -name:
 
@@ -62,13 +62,15 @@ For example, a classic *3P6S* module has 18 cells, 3 in parallel and 6 in series
 * Performance management: SOC management...
 * Diagnostics: (State of health)SOH, (State of life)SOL ...
 
-### Sensing and high-voltage control: $u,i,T$ monitoring.
+### Requirement1: Battery-pack sensing
 
-**Voltage**: Intergrated circuit are ofter used, such as LTC6803  
+#### Voltage
 
-<hr>
+Intergrated circuit are ofter used, such as LTC6803  
 
-**Temperature**: A model is needed to monitor the temperature inside the battery from external temperature.  
+#### Temperature
+
+Battery-pack sensinig: **Temperature**: A model is needed to monitor the temperature inside the battery from external temperature.  
 
 *Thermocouple*: A thermocouple uses 2 different metals to contact and a tiny voltage generate from from the contact. The voltage can be amplified and measured. However, the measurement requires the a relative sample metal at a known temperature.  In other words, it needs a reference state. This method is good for lab but not for production BMS designs.  
 *Themistor*: Resistor-temperature relationship.  
@@ -81,22 +83,76 @@ A circuit is used to monitor the resistances of thermistor. Then you can look up
     </div>
 </div>
 
-<hr>
+#### Current  
 
-**Current**:  
+*Current-shunt*<d-cite, key='BMS_vol2'><\d-cite>: Use a low-value($0.1m\Omega$), high-precision resistor. the $i = v_{shunt}/R_{shunt}$. The signal needs an amplifier to be detectable. 
 
-*Current-shunt*: 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/2024-04-29-Battery-Managment-Systems/currentshunt.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
-*Hall-effect sensors*: 
+* Pros:
+  * No zero offset compared with hall-effect sensors, regradless of temperature(if the resistor do not vary with temperature).
+* Cons:
+  * It needs an isolated power supply to support amplifiers.  
+  * Generate slight amount of hear.  
 
+*Hall-effect sensors*<d-cite, key='BMS_vol2'><\d-cite>:  
 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/2024-04-29-Battery-Managment-Systems/hall.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+* Pros:
+  * No isolated power supply.  
+* Cons:
+  * Zero-offset that is hard to calibrate.  
+  * The zero offset is time and temperature dependent.  
 
 * Protection: against overcharge, overdischarge, overcurrent, short circuits, extreme temperatures.  
 * Interface: report the status
 * Performance management: SOC management...
 * Diagnostics: (State of health)SOH, (State of life)SOL ...
 
+#### High-voltage contactor control
+
+The thing is that most of battery loads are often capacitive, before it can function, a charging process will be started first. If you just use a pure contactor at the starting point the contactor may get fused.  
+
+So a pre-contrator with a resistor is needed. Just to control the charging process not to be too fast with extreme large current.  
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/2024-04-29-Battery-Managment-Systems/precontactor.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    (a)-(e) demonstrate the process to start charging a device.  <d-cite, key='BMS_vol2'><\d-cite>
+</div>
+
+#### Isolation sensing
+
+Just take a the lead-acid battery in an car as an example. The voltage of the battery is 12V and it is directly installed on the chassis.  Though the battery has a package and a totally invisable circuit away from people. However, no one can make sure when there is an accident, the chassis do not connect to one of the electrodes of the battery.  
+
+Consequently, there is a requirement to detect it is shunt or not with chassis. A safety current limit is 0.2mV.  
+
 ## Afternotes
 
 *Non-Recurring Engineering(NRE)*: Non-Recurring Engineering is the cost of creating a new product and is usually fully paid before any product gets manufactured. This is in contrast with production cost, which is an ongoing cost and is generally based on the quantities produced. For example, in the camera lens industry, the NRE would be the cost of developing the lens designs and tools which will make the lens smooth; the production cost would be the cost to manufacture each camera lens.  
 
+*Contactor* A contactor is an electrically controlled switch used for switching an electrical power circuit. A contactor is typically controlled by a circuit which has a much lower power level than the switched circuit, such as a 24-volt coil electromagnet controlling a 230-volt motor switch.  
+
+*Amplifier(amp)*:An amplifier, electronic amplifier or (informally) amp is an electronic device that can increase the magnitude of a signal (a time-varying voltage or current). It is a two-port electronic circuit that uses electric power from a power supply to increase the amplitude (magnitude of the voltage or current) of a signal applied to its input terminals, producing a proportionally greater amplitude signal at its output.[from wikipedia:](https://en.wikipedia.org/wiki/Amplifier)  This is a kind of *active devices*(provide outpurs containing more power than their inputs), which means they need extra power supply.  
+
+*Bus voltage* is the total voltage between power and ground(GND). It is the sum of the load voltage and the shunt voltage.  
+*Load voltage* is the voltage going to the load.
+*Shunt voltage* is the voltage drop across the shunt resistor that is in series with the load.
+
+*chassis*(ʃæ̱si) A *chassis* is the framework that a vehicle is built on.
+
+
+
+现在感觉真是越看不懂的越多，对于amp和hall element都有一个叫做zero offset的东西。 这个东西好像很深奥，然后对于不同的材料对于这个offset的modeling也不同。只能从主干入手了。旁支末节聊记于此，有心时再研究吧。  
