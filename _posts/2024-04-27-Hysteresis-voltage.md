@@ -95,7 +95,7 @@ $$h[s+1] = A_H h[s] - Msgn(i(t))(1-A_H)$$
 From the discussion on equivalant circuit models, now with new information with hysteresis effects. The OCV with half cell equivalent circuit can be viewed as follows:
 
 <div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-4 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/2024-04-27-Hysteresis-voltage/circuit1.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
@@ -106,7 +106,7 @@ From the discussion on equivalant circuit models, now with new information with 
 When the time scale difference bewteen Warburg impedance and other circuit elements are so large, that the Warburg impedance get out on to the main branch.  
 
 <div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-4 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/2024-04-27-Hysteresis-voltage/circuit2.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
@@ -117,7 +117,7 @@ When the time scale difference bewteen Warburg impedance and other circuit eleme
 As we have discussed in another blog the linear part of Warburg impedance can be approximated by a series of parallel resistor-and-capacitor pairs.  
 
 <div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-sm mt-4 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/2024-04-27-Hysteresis-voltage/circuit3.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
@@ -177,7 +177,7 @@ $$[\vec b_{RC}]_i = 1-F_i$$
 ### ESC model and its *state equation*
 
 Combine everything above together, we get the *state equation* of ESC model
-\begin{equation}
+\[
     \begin{bmatrix}
     z[s+1]\\
     \vec i_r[s+1]\\
@@ -203,7 +203,7 @@ Combine everything above together, we get the *state equation* of ESC model
     \begin{bmatrix}
     I & sgn(I)\\
     \end{bmatrix}
-\end{equation}
+\]
 
 ## Afterwords
 
