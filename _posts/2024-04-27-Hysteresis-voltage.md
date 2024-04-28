@@ -2,7 +2,7 @@
 layout: distill
 title: Hysteresis voltage modeling
 date: 2024-04-27 14:25:00
-description: Introduce hysteresis voltage and its modeling
+description: Simple introduce hysteresis voltage and its phenomenological modeling
 tags: batteries lithium-ion battery-study
 categories: battery-study
 
@@ -11,7 +11,10 @@ toc:
   - name: Hysteresis voltage
   - name: Main loop and minor loop
   - name: Hysteresis modeling
-  - name: Enhanced self-correcting model
+  - name: Enhanced self-correcting (ESC) model
+  - subsections:
+       - name: Single resistor-and-capacitor pair
+       - name: ESC model and its *state equation*
 ---
 
 ## Hysteresis voltage
@@ -64,13 +67,27 @@ Because our previous equivalent circuit model depends on the time, we use the ch
 
 $$\frac{dh(z,t)}{dz} \frac{dz}{dt} = \gamma sgn(\dot z)(M(z,\dot z)- h(z,t)) \frac{dz}{dt}$$
 
-To make life easier, we can simply assume that during the sample period the 
+$$\frac{dz}{dt} = -\eta(t)i(t)/Q$$
+$\dot z sgn(\dot z) = |z|$
 
-I do not know the details but however the mathmatical analysis always leads to a linear relationship. With a transfer function.  
+$$\frac{dh(z,t)}{dz} \frac{dz}{dt} = \gamma (M(z,\dot z)- h(z,t)) *|\frac{\eta(t)i(t)}{Q}|$$
 
-$$h[k+1] = Mh[k]$$
+To make life easier **assume $I(t)$ & $M(z,\dot z)$ are constant during sampling period**. So if one want to get the fully profile, multiple linear approximation can be made to tackle this problem.  
 
-## Enhanced self-correcting model
+Solve the ODE and make it discrete, and do some rearrangements:
+
+$$h[s+1] = exp(-|\frac{\eta[s]I\Delta t\gamma}{Q}|)h[s] + M(z,\dot z)(1-exp(-|\frac{\eta[s]I\Delta t\gamma}{Q}|))$$
+
+Note: $M(z,\dot z) $ varies with current orientation, the simplest way to make it a const is by $M(z,\dot z) = -M sgn(i(t))$
+
+Now the equation becomes:  
+
+$$h[s+1] = exp(-|\frac{\eta[s]I\Delta t\gamma}{Q}|)h[s] - Msgn(i(t))(1-exp(-|\frac{\eta[s]I\Delta t\gamma}{Q}|))$$
+
+$A_H[s] = exp(-|\frac{\eta[s]I\Delta t\gamma}{Q}|)$
+
+$$h[s+1] = A_H h[s] - Msgn(i(t))(1-A_H)$$
+## Enhanced self-correcting (ESC) model
 
 *Enhanced* means the model also includes hysteresis effects.  
 *Self-correcting* means the model converges to the $OCV+hysteresis$ when $i = 0$  
@@ -113,6 +130,8 @@ Let's denote the charge transfer resistance and double layer capacity as $R_{0}$
     </div>
 </div>
 
+### Single resistor-and-capacitor pair
+
 Let's use the current to analyze resistor-and-capacitor pair.  
 
 For a single pair,  use the voltage change of a single resistor-and-capacitor pair as a birdge:
@@ -127,11 +146,61 @@ $$i_k(t) + \frac{i(t)}{C_kR_k} = \frac{I(t)}{C_kR_k}$$
 
 Solve the ODE using Cauchy's method.  
 
-$$i = Ae^{-\frac{t}{C_kR_k}} + I(t)$$
+$$i_k(t) = Ae^{-\frac{t}{C_kR_k}} + i_c(t)$$
 
+When in reality, the I(t) can be AC current such as in the case of (EIS). So it can be extended to a fourier series. This means the solution of the ODE is also a fourier series, denoted $i_c(t) = I'(t)$.  
 
+Now let's think about the discret form.  
+$$i_k[s] = Ae^{-\frac{s\Delta t}{C_kR_k}} + i_c[s]$$
+$$i_k[s+1] = Ae^{-\frac{(s+1)\Delta t}{C_kR_k}} + i_c[s+1]$$
+Then:
 
+$$i_k[s+1] = F_k * i_k[s] + i_c[s+1] - F_k i_c[s]$$
+$$F_k = e^{-\frac{\Delta t}{C_kR_k}}$$
 
+To make life easier **assume I(t) is a constant during sample period**. So if one want to get the fully profile, multiple linear approximation can be made to tackle this problem.  
+
+$$i_c[s] = i_c[s+1] = I$$
+
+The original solution becomes:  
+$$i_k[s+1] = F_k * i_k[s] + (1- F_k)I$$
+
+Convert this equation to a matrix form:  
+
+$$\vec i_r[s+1] = \mathbb A_{RC} * \vec i_r[s] + b_{RC} I$$
+$$\mathbb A_{RC} = diag(F_k)$$
+$$[\vec b_{RC}]_i = 1-F_i$$
+
+### ESC model and its *state equation*
+
+Combine everything above together, we get the *state equation* of ESC model
+\[
+    \begin{bmatrix}
+    z[s+1]\\
+    \vec i_r[s+1]\\
+    h[s+1]\\
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 & 0 & 0\\
+    0 & \mathbb A_{RC} & 0 \\
+    0 & 0 & A_H\\
+    \end{bmatrix}
+    \begin{bmatrix}
+    z[s]\\
+    \vec i_r[s]\\
+    h[s]\\
+    \end{bmatrix}
+    + 
+    \begin{bmatrix}
+    -\frac{\eta [s] \Delta t}{Q} & 0\\
+    \vec b_{RC} & 0\\
+    0 & A_H-1
+    \end{bmatrix}
+    \begin{bmatrix}
+    I & sgn(I)\\
+    \end{bmatrix}
+\]  
 
 ## Afterwords
 

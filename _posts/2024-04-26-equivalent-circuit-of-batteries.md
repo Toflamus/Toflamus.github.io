@@ -24,7 +24,7 @@ toc:
 ---
 
 
-This blog is a summary of the problems and concerns one may encounter when consider the battery system. Detailed formulas are not included just a general description.  
+This blog is a summary of the problems and concerns one may encounter when consider the battery system. Detailed but not essential formulas are not included. This blog is just a general description.  
 
 ## Open circuit voltage(OCV) and State of Charge(SOC) dependence <d-cite key="BMS_vol1"></d-cite>  
 
