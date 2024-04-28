@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Can high voltage battery shocks a man?How? 一块高压蓄电池能否以及如何让人中电
+title: Can high voltage battery shocks a man?How? 一块高压蓄电池能否以及如何让人中电?
 description: A interesting problem regarding a man holding battery electrode and standing on the ground.一个关于高压蓄电池如何让人中电的有趣问题。
 tags: batteries insights shortposts chinese
 categories: battery-study
