@@ -25,7 +25,7 @@ Purposes:
 2. To prolong the life of the batteries.  
 3. To keep the battery functioning.  
 
-Marginal effect: When do we need BMS？ 
+Marginal effect: When do we need BMS？  
 
 Cost of failure(Expectation) and related cost higher than then cost of BMS.  
 
