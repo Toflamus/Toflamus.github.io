@@ -132,12 +132,13 @@ Let's denote the charge transfer resistance and double layer capacity as $R_{0}$
 
 ### Single resistor-and-capacitor pair
 
-Let's use the current to analyze resistor-and-capacitor pair.  
+Let's use the current to analyze a resistor-and-capacitor pair.  
 
 For a single pair,  use the voltage change of a single resistor-and-capacitor pair as a birdge:
 
 $$u_k = \frac{Q_k}{C_k} = \frac{1}{C_k}\int_0^t I-i_k dt$$
 $$u_k = R_k i_k$$
+
 where $i_k$ is the current goes through $R_k$ and I is main branch current.  
 
 After take a derivative and rearrangement:  
@@ -151,8 +152,10 @@ $$i_k(t) = Ae^{-\frac{t}{C_kR_k}} + i_c(t)$$
 When in reality, the I(t) can be AC current such as in the case of (EIS). So it can be extended to a fourier series. This means the solution of the ODE is also a fourier series, denoted $i_c(t) = I'(t)$.  
 
 Now let's think about the discret form.  
+
 $$i_k[s] = Ae^{-\frac{s\Delta t}{C_kR_k}} + i_c[s]$$
 $$i_k[s+1] = Ae^{-\frac{(s+1)\Delta t}{C_kR_k}} + i_c[s+1]$$
+
 Then:
 
 $$i_k[s+1] = F_k * i_k[s] + i_c[s+1] - F_k i_c[s]$$
@@ -174,7 +177,7 @@ $$[\vec b_{RC}]_i = 1-F_i$$
 ### ESC model and its *state equation*
 
 Combine everything above together, we get the *state equation* of ESC model
-\[
+\begin{equation}
     \begin{bmatrix}
     z[s+1]\\
     \vec i_r[s+1]\\
@@ -200,7 +203,7 @@ Combine everything above together, we get the *state equation* of ESC model
     \begin{bmatrix}
     I & sgn(I)\\
     \end{bmatrix}
-\]  
+\end{equation}
 
 ## Afterwords
 
@@ -212,7 +215,7 @@ $$\dot u_i = -\frac{1}{R_i C_i} u_i + \frac{1}{C_i} I$$
 
 The ODEs for resistor-and-capacitor pairs can be expressed as:
 
-\[
+\begin{equation}
     \begin{bmatrix}
     \dot u_0\\
     \dot u_1\\
@@ -240,7 +243,7 @@ The ODEs for resistor-and-capacitor pairs can be expressed as:
     \frac{1}{C_n}\\
     \end{bmatrix}
     I
-\]  
+\end{equation} 
 This is the method with voltage to describe the SOC but however I need to use current instead of voltage to analyze the circuit here. 
 
 I did not heard about this topic too much before when I concentrated at ElectroChemistry. The hysteresis effect is important for Battery Management Systems.  
