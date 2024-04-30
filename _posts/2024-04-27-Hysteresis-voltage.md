@@ -87,6 +87,26 @@ $$h[s+1] = exp(-|\frac{\eta[s]I\Delta t\gamma}{Q}|)h[s] - Msgn(i(t))(1-exp(-|\fr
 $A_H[s] = exp(-|\frac{\eta[s]I\Delta t\gamma}{Q}|)$
 
 $$h[s+1] = A_H h[s] - Msgn(i(t))(1-A_H)$$
+
+We can normalize the result by devide the equation by $M$.  
+
+$$\hat h[s+1] = A_H \hat h[s] - sgn(i(t))(1-A_H)$$
+$$Hysteresis voltage = M\hat h[s]$$
+
+Now this model can be viewed as a linear model *dynamic hysteresis* that goes through the origin point. However, in reality it is a good idea to model a const in case the curve do not fit the origin. The const is called *instaneous hysteresis*. It also contains the information when the current direction changes.  
+
+\[
+    \hat h_{ins}[s] =
+    \begin{matrix}
+    sgn(i[s]), |i[s]|>0\\
+    \hat h_{int}[s-1], otherwise.\\
+    \end{matrix}
+\]
+
+The *instaneous hysteresis* is:  
+
+$$Instaneous hysteresis = M_0 \hat h_{int}[s]$$
+
 ## Enhanced self-correcting (ESC) model
 
 *Enhanced* means the model also includes hysteresis effects.  
@@ -205,6 +225,10 @@ Combine everything above together, we get the *state equation* of ESC model
     I & sgn(I)\\
     \end{bmatrix}
 \]
+
+The voltage of the model is estimated by:
+
+$$v[s] = OCV(z[s],T[s]) + M\hat h[s] + M_0 \hat h_{int}[s] - \sum_j^n R_ji_{R_j}[s] -R_u i[s]$$
 
 ## Afterwords
 
