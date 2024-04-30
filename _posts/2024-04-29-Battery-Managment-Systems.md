@@ -67,13 +67,19 @@ For example, a classic *3P6S* module has 18 cells, 3 in parallel and 6 in series
 #### Voltage
 
 Intergrated circuit are ofter used, such as LTC6803  
+Basic structure: *Master-slave system*  
+
+When many cells are connected in series *high voltage isolation* is required but challenging.  
 
 #### Temperature
 
 Battery-pack sensinig: **Temperature**: A model is needed to monitor the temperature inside the battery from external temperature.  
 
 *Thermocouple*: A thermocouple uses 2 different metals to contact and a tiny voltage generate from from the contact. The voltage can be amplified and measured. However, the measurement requires the a relative sample metal at a known temperature.  In other words, it needs a reference state. This method is good for lab but not for production BMS designs.  
+
 *Themistor*: Resistor-temperature relationship.  
+
+*Resistance thermometers(resistance temperature detectorsRTD)*: Using resistance/temperature relationship of metals, generally pure materials(Cu, Ni, Pt), to detect temperature. Accurate, fragile. Mostly used in lab.  
 
 A circuit is used to monitor the resistances of thermistor. Then you can look up to the table for the thermistor-temperature relationship.  
 
@@ -85,12 +91,15 @@ A circuit is used to monitor the resistances of thermistor. Then you can look up
 
 #### Current  
 
-*Current-shunt*<d-cite, key='BMS_vol2'><\d-cite>: Use a low-value($0.1m\Omega$), high-precision resistor. the $i = v_{shunt}/R_{shunt}$. The signal needs an amplifier to be detectable. 
+*Current-shunt*: Use a low-value($0.1m\Omega$), high-precision resistor. the $i = v_{shunt}/R_{shunt}$. The signal needs an amplifier to be detectable. 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/2024-04-29-Battery-Managment-Systems/currentshunt.png" class="img-fluid rounded z-depth-1" %}
     </div>
+</div>
+<div class = "caption">
+  The figure is from L.Plett's book.<d-cite, key='BMS_vol2'><\d-cite>
 </div>
 
 * Pros:
@@ -99,13 +108,18 @@ A circuit is used to monitor the resistances of thermistor. Then you can look up
   * It needs an isolated power supply to support amplifiers.  
   * Generate slight amount of hear.  
 
-*Hall-effect sensors*<d-cite, key='BMS_vol2'><\d-cite>:  
+*Hall-effect sensors*:  Detect the magnetic field associated with a current flowing.  
+A good [web](https://www.allegromicro.com/en/insights-and-innovations/technical-documents/hall-effect-sensor-ic-publications/hall-effect-ic-applications-guide) about Hall-effect sensors.  
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/2024-04-29-Battery-Managment-Systems/hall.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+<div class = "caption">
+  The figure is from L.Plett's book.<d-cite, key='BMS_vol2'><\d-cite>
+</div>
+
 
 * Pros:
   * No isolated power supply.  
@@ -137,7 +151,45 @@ So a pre-contrator with a resistor is needed. Just to control the charging proce
 
 Just take a the lead-acid battery in an car as an example. The voltage of the battery is 12V and it is directly installed on the chassis.  Though the battery has a package and a totally invisable circuit away from people. However, no one can make sure when there is an accident, the chassis do not connect to one of the electrodes of the battery.  
 
-Consequently, there is a requirement to detect it is shunt or not with chassis. A safety current limit is 0.2mV.  
+In a large battery pack, the DC bus voltage can be in the range of **300~800V**. Consequently, there is a requirement to detect it is shunt or not with chassis. A safety current limit is **0.2mV**.  
+
+A circuit is required to estimates the isolation resistance on each side of the pack.  
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/2024-04-29-Battery-Managment-Systems/isolationdetect.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Isolation detect circuit  <d-cite, key='C26_2'><\d-cite>
+</div>
+
+### Requirement4: Energy and power estimation
+
+There are only 3 parameters that we know the temperature current and voltage of battery $i$ in the $k^{th}$ time step,$v_k^{(i)}, i_k^{(i)}, T_k^{(i)}$  
+
+However we need SOC($z_k^{i}$), SOV, remaining capacity$Q_k^{i}$ and inner reisistance$R_k^{i}$ to get energy and power abailable in the next period of time.  
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/2024-04-29-Battery-Managment-Systems/EandPestimationwf.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Energy and power estimation workflow  <d-cite, key='BMS_vol2'><\d-cite>
+</div>
+
+#### SOC estimation
+
+I will do this part in the future
+
+#### Energy estimation
+
+I will do this part in the future
+
+#### Power estimation
+
+I will do this part in the future
 
 ## Afternotes
 
@@ -146,6 +198,10 @@ Consequently, there is a requirement to detect it is shunt or not with chassis. 
 *Contactor* A contactor is an electrically controlled switch used for switching an electrical power circuit. A contactor is typically controlled by a circuit which has a much lower power level than the switched circuit, such as a 24-volt coil electromagnet controlling a 230-volt motor switch.  
 
 *Amplifier(amp)*:An amplifier, electronic amplifier or (informally) amp is an electronic device that can increase the magnitude of a signal (a time-varying voltage or current). It is a two-port electronic circuit that uses electric power from a power supply to increase the amplitude (magnitude of the voltage or current) of a signal applied to its input terminals, producing a proportionally greater amplitude signal at its output.[from wikipedia:](https://en.wikipedia.org/wiki/Amplifier)  This is a kind of *active devices*(provide outpurs containing more power than their inputs), which means they need extra power supply.  
+
+*Common mode rejection ratio (CMRR)* of amp: [wikipedia](https://en.wikipedia.org/wiki/Common-mode_rejection_ratio)  
+
+*Analog-to-digital converter (ADC)* The device to convert a **continuous** analog signal(sound wave or sth) to a **discrete** digital signal. It involves some issure with sampling frequency, above which the information loss and *aliasing* may rise. The sample rate is determined by *Nyquist-Shannon sampling theorem*.  
 
 *Bus voltage* is the total voltage between power and ground(GND). It is the sum of the load voltage and the shunt voltage.  
 *Load voltage* is the voltage going to the load.
