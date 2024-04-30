@@ -176,7 +176,8 @@ $$[\vec b_{RC}]_i = 1-F_i$$
 
 ### ESC model and its *state equation*
 
-Combine everything above together, we get the *state equation* of ESC model
+Combine everything above together, we get the *state equation* of ESC model  
+
 \[
     \begin{bmatrix}
     z[s+1]\\
@@ -243,7 +244,8 @@ The ODEs for resistor-and-capacitor pairs can be expressed as:
     \frac{1}{C_n}\\
     \end{bmatrix}
     I
-\end{equation} 
+\end{equation}  
+
 This is the method with voltage to describe the SOC but however I need to use current instead of voltage to analyze the circuit here. 
 
 I did not heard about this topic too much before when I concentrated at ElectroChemistry. The hysteresis effect is important for Battery Management Systems.  
