@@ -202,27 +202,28 @@ Combine everything above together, we get the *state equation* of ESC model
     \begin{bmatrix}
     z[s+1]\\
     \vec i_r[s+1]\\
-    h[s+1]\\
+    h[s+1]
     \end{bmatrix}
     =
     \begin{bmatrix}
     1 & 0 & 0\\
     0 & \mathbb A_{RC} & 0 \\
-    0 & 0 & A_H\\
+    0 & 0 & A_H
     \end{bmatrix}
     \begin{bmatrix}
     z[s]\\
     \vec i_r[s]\\
-    h[s]\\
+    h[s]
     \end{bmatrix}
     + 
     \begin{bmatrix}
     -\frac{\eta [s] \Delta t}{Q} & 0\\
-    \vec b_{RC} & 0\\
+    \vec b_{RC} & 0
     0 & A_H-1
     \end{bmatrix}
     \begin{bmatrix}
-    I & sgn(I)\\
+    I \\
+    sgn(I)
     \end{bmatrix}
 \]
 
