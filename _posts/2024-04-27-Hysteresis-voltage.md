@@ -198,34 +198,11 @@ $$[\vec b_{RC}]_i = 1-F_i$$
 
 Combine everything above together, we get the *state equation* of ESC model  
 
-\[
-    \begin{bmatrix}
-    z[s+1]\\
-    \vec i_r[s+1]\\
-    h[s+1]
-    \end{bmatrix}
-    =
-    \begin{bmatrix}
-    1 & 0 & 0\\
-    0 & \mathbb A_{RC} & 0 \\
-    0 & 0 & A_H
-    \end{bmatrix}
-    \begin{bmatrix}
-    z[s]\\
-    \vec i_r[s]\\
-    h[s]
-    \end{bmatrix}
-    + 
-    \begin{bmatrix}
-    -\frac{\eta [s] \Delta t}{Q} & 0\\
-    \vec b_{RC} & 0
-    0 & A_H-1
-    \end{bmatrix}
-    \begin{bmatrix}
-    I \\
-    sgn(I)
-    \end{bmatrix}
-\]
+<div class="row mt-3">
+    <div class="col-sm mt-4 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/2024-04-27-Hysteresis-voltage/SCM.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
 
 The voltage of the model is estimated by:
 
@@ -241,7 +218,52 @@ $$\dot u_i = -\frac{1}{R_i C_i} u_i + \frac{1}{C_i} I$$
 
 The ODEs for resistor-and-capacitor pairs can be expressed as:
 
-\begin{equation}
+<div class="row mt-3">
+    <div class="col-sm mt-4 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/2024-04-27-Hysteresis-voltage/SOC.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+
+This is the method with voltage to describe the SOC but however I need to use current instead of voltage to analyze the circuit here. 
+
+### Somenotes  
+
+My matrix was inappropriately deployed for some reasons. I just used a `.png` instead. Here is the original matrix.  
+
+For SCM:
+
+\[
+    \begin{bmatrix}
+    z[s+1] \\  
+    \vec i_r[s+1] \\  
+    h[s+1]\\  
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    1 & 0 & 0\\  
+    0 & \mathbb A_{RC} & 0 \\  
+    0 & 0 & A_H\\  
+    \end{bmatrix}
+    \begin{bmatrix}
+    z[s]\\  
+    \vec i_r[s]\\  
+    h[s]\\  
+    \end{bmatrix}
+    + 
+    \begin{bmatrix}
+    -\frac{\eta [s] \Delta t}{Q} & 0\\  
+    \vec b_{RC} & 0 \\  
+    0 & A_H-1 \\  
+    \end{bmatrix}
+    \begin{bmatrix}
+    I \\  
+    sgn(I)\\  
+    \end{bmatrix}
+\]
+
+For SOC method:
+\[
     \begin{bmatrix}
     \dot u_0\\
     \dot u_1\\
@@ -269,8 +291,5 @@ The ODEs for resistor-and-capacitor pairs can be expressed as:
     \frac{1}{C_n}\\
     \end{bmatrix}
     I
-\end{equation}  
-
-This is the method with voltage to describe the SOC but however I need to use current instead of voltage to analyze the circuit here. 
-
+\] 
 I did not heard about this topic too much before when I concentrated at ElectroChemistry. The hysteresis effect is important for Battery Management Systems.  
