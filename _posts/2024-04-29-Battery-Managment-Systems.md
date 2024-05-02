@@ -103,7 +103,7 @@ A circuit is used to monitor the resistances of thermistor. Then you can look up
 </div>
 
 * Pros:
-  * No zero offset compared with hall-effect sensors, regradless of temperature(if the resistor do not vary with temperature).
+  * No zero offset<d-footnote>This may refers to the semiconductor diode which has a threshold voltage to allow current to past through it like short circuit. </d-footnote> compared with hall-effect sensors, regradless of temperature(if the resistor do not vary with temperature).
 * Cons:
   * It needs an isolated power supply to support amplifiers.  
   * Generate slight amount of hear.  
@@ -208,7 +208,5 @@ I will do this part in the future
 *Shunt voltage* is the voltage drop across the shunt resistor that is in series with the load.
 
 *chassis*(ʃæ̱si) A *chassis* is the framework that a vehicle is built on.
-
-
 
 现在感觉真是越看不懂的越多，对于amp和hall element都有一个叫做zero offset的东西。 这个东西好像很深奥，然后对于不同的材料对于这个offset的modeling也不同。只能从主干入手了。旁支末节聊记于此，有心时再研究吧。  

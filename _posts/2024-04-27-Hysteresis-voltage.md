@@ -14,7 +14,7 @@ toc:
   - name: Enhanced self-correcting (ESC) model
   - subsections:
        - name: Single resistor-and-capacitor pair
-       - name: ESC model and its *state equation*
+       - name: ESC model and its state equation
 ---
 
 ## Hysteresis voltage
