@@ -8,7 +8,12 @@ categories: battery-study
 
 bibliography: 2024-04-27-Hysteresis-voltage.bib
 toc:
-  -name:
+  -name: An introduction to BMS
+  -name: Battery-pack topology
+  -name: BMS design requirements
+  -subsections:
+    -name: Requirement1: Battery-pack sensing
+    -name: Requirement4: Energy and power estimation
 
 ---
 

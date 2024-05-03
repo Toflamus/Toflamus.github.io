@@ -263,7 +263,7 @@ For SCM:
 \]
 
 For SOC method:
-\[
+\begin{equations}
     \begin{bmatrix}
     \dot u_0\\
     \dot u_1\\
@@ -291,5 +291,5 @@ For SOC method:
     \frac{1}{C_n}\\
     \end{bmatrix}
     I
-\] 
+\end{equations}
 I did not heard about this topic too much before when I concentrated at ElectroChemistry. The hysteresis effect is important for Battery Management Systems.  
