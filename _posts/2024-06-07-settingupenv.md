@@ -1,6 +1,6 @@
 ---
 layout: distill
-title:  Setting up my environment
+title:  Setting up python environment
 date: 2024-06-07 9:00:00
 description: How to set up VScode with git and build an envrionment with anoaconda
 tags: setup
@@ -9,23 +9,25 @@ categories: setup
 bibliography: 2024-05-13-ff_mt.bib
 
 toc:
+  - name: Installation and setup of VScode
+  - name: 
   - name: 
 ---
 
-## Installation of VScode
+## Installation and setup of VScode
 
 Visit the official website and download. Do not forget to add to path!.  
 Click [here](https://code.visualstudio.com/)
 
-## How to debug with launch.json
+### Setting launch.json
   
 Here is an answer from [Zhihu](https://zhuanlan.zhihu.com/p/673525708)  
 
 Anyway for basic configuration, the VScode will write the `lanuch.json` for you.  
 
-## Settings json
+## settings.json
 
-This is an important file 
+`settings.json` is an important file where you can set the configurations of VS code by .json instead of click a lot of settings.  
 
 ## Get your git
 
