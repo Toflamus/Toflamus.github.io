@@ -94,7 +94,7 @@ The most basic way to create a new environment is with the following command:
 
 To add packages while creating an environment, specify them after the environment name:  
 
-Ex: `conda create -n myenvironment python numpy pandas`  
+Ex: `conda create -n myenvironment python=3.12.3`  
 
 For more information on working with environments, see [Managing environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).  
 
