@@ -10,8 +10,8 @@ bibliography: 2024-05-13-ff_mt.bib
 
 toc:
   - name: Installation and setup of VScode
-  - name: 
-  - name: 
+  - name: Get your git
+  - name: Conda & anaconda
 ---
 
 ## Installation and setup of VScode
@@ -25,7 +25,7 @@ Here is an answer from [Zhihu](https://zhuanlan.zhihu.com/p/673525708)
 
 Anyway for basic configuration, the VScode will write the `lanuch.json` for you.  
 
-## settings.json
+### settings.json
 
 `settings.json` is an important file where you can set the configurations of VS code by .json instead of click a lot of settings.  
 
