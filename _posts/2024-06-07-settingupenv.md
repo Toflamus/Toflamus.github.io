@@ -151,13 +151,13 @@ For more information on searching for and installing packages, see [Managing pa
 
 `conda remove --name <env_name> --all`  
 
-#### **Anaconda、conda、pip、virtualenv的区别**  
+### **Anaconda、conda、pip、virtualenv的区别**  
 
-##### **① Anaconda**  
+#### **① Anaconda**  
 
 Anaconda是一个包含180+的科学包及其依赖项的发行版本。其包含的科学包包括：conda, numpy, scipy, ipython notebook等。 
 
-##### **② Conda**  
+#### **② Conda**  
 
 conda是包及其依赖项和环境的管理工具。 
 
