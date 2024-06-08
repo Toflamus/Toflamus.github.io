@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  Setting up python environment
+title: Setting up python environment
 date: 2024-06-07 9:00:00
-description: How to set up VScode with git and build an envrionment with anoaconda
+description: Setting up VScode with git and build an envrionment with anoaconda
 tags: setupenv
 categories: setupenv
 ---
