@@ -3,7 +3,7 @@ layout: distill
 title: Build an equivalent circuit of batteries from scratch
 date: 2024-04-26 14:25:00
 description: First blog! 
-tags: batteries longposts
+tags: batteries longposts 
 categories: battery-study
 
 bibliography: 2024-04-26-equivalent-circuit-of-batteries.bib

@@ -3,7 +3,7 @@ layout: post
 title: Setting up python environment
 date: 2024-06-07 9:00:00
 description: Setting up VScode with git and build an envrionment with anoaconda
-tags: setupenv
+tags: setupenv longposts
 categories: setupenv
 ---
 

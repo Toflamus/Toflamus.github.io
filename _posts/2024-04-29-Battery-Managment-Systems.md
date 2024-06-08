@@ -3,7 +3,7 @@ layout: distill
 title: Battery management systems
 date: 2024-04-29 14:25:00
 description: A simple introduction to battery management systems based on L. Plett's book and C26 lecture notes.  
-tags: batteries lithium-ion battery-study
+tags: batteries lithium-ion
 categories: battery-study
 
 bibliography: 2024-04-27-Hysteresis-voltage.bib
