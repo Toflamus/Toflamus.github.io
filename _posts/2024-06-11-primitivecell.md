@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 一次有关primitive cell 的问题的讨论
-date: 2024-06-07 9:00:00
+date: 2024-06-11 9:00:00
 description: 起因是我不知道为什么Diamond中间有两个C，在朋友圈发了一圈获得许多insights，原因是因为对于Lattice point的定义不清楚，于是记之。  
 tags: insights shortposts chinese
 categories: solidstate
