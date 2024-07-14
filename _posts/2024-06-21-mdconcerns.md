@@ -3,8 +3,8 @@ layout: distill
 title: Concerns on MD 
 date: 2024-06-21 0:00:00
 description: This is a memo of the concerns when I studying MD simulations.    
-tags: memo shortposts
-categories: memo
+tags: memo shortposts md
+categories: memo md
 bibliography: 2024-06-13-raman.bib
 toc:
   - name: Concerns on MD
