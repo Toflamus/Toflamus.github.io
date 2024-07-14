@@ -174,18 +174,27 @@ However, we cannot promise $\mathcal{H} = \mathcal{K} + \mathcal{U}$ is diagonal
 
 $$exp\{-[\mathcal{K}+\mathcal{U}+ \mathcal{O}([\mathcal{K},\mathcal{U}])]\beta\} =  exp(-\mathcal{K}\beta)exp(-\mathcal{U}\beta)$$
 
-According to the textbook<d-cite key="undMD"></d-cite>, the diagonality only exist when $\hbar \rarr 0$<d-footnote>This means the world is totally continuous. I do not know how to prove relationship between the diagnoality and contiunity condition. </d-footnote>
+According to the textbook<d-cite key="undMD"></d-cite>, the diagonality only exist when $\hbar \rarr 0$<d-footnote>This means the world is totally continuous. I do not know how to prove the relationship between the diagnoality and contiunity condition. </d-footnote>
 
 Anyway, if we really satisfied the condition, we'd have:  
 
-$$Tr exp(\mathcal{-\beta H}) = \sum_{r,k} \langle r|e^{-\beta \mathcal{U}}|r\rangle \langle r|k\rangle\langle k|e^{-\beta \mathcal{K}}|k\rangle$$
+$$Tr exp(\mathcal{-\beta H}) = \sum_{r,k} \langle r|e^{-\beta \mathcal{U}}|r\rangle \langle r|k\rangle\langle k|e^{-\beta \mathcal{K}}|k\rangle \langle k|r\rangle$$
 
 Note:  
 
-$$\langle r|e^{-\beta \mathcal{U}}|r\rangle = exp[-\beta \mathcal{U}(r^{\mathbf N})]$$
+$$\langle r|e^{-\beta \mathcal{U}}|r\rangle = exp[-\beta \mathcal{U}(\mathbf r^{ N})]$$
+$$\langle k|e^{-\beta \mathcal{K}}|k\rangle = exp[-\beta \sum_{i=1}^{N}p_i^2/(2m_i)]$$
 
-Taking a detailed look at the *Partition function*, if we do the summation in a continuous [*configurational space*](https://en.wikipedia.org/wiki/Configuration_space_(physics)), the equation becomes:  
-$$Q = \int d\mathbf{p}^N d\mathbf{r}^N exp(-E_i/k_BT) $$
-However, 
+$$p_i = \hbar k_i$$
+
+$$\langle r|k\rangle\langle k|r\rangle = 1/V^N$$
+
+Where $V$ is the volume of the system and the $N$ is the number of the particles. Thus the Partition function for classical system can be:  
+
+$$Q_{classical} = Trexp(-\beta \mathcal{H}) \approx \frac{1}{h^{dN} N!} \int d\mathbf p^N d\mathbf r^N exp\left\{ -\beta  \left[ \sum_{i=1}^{N}p_i^2/(2m_i)+\mathcal{U}(\mathbf r^{ N})\right] \right\}$$
+
+The term $N!$ appears because of the all same particles in this system. This related to the famous [Gibbs paradox](https://en.wikipedia.org/wiki/Gibbs_paradox). Now the average becomes:  
+
+$$\langle A \rangle = \frac{\int d\mathbf p^N d\mathbf r^N A(\mathbf p^N ,\mathbf r^N)exp\left\{ -\beta  \left[ \sum_{i=1}^{N}p_i^2/(2m_i)+\mathcal{U}(\mathbf r^{ N})\right] \right\}}{\int d\mathbf p^N d\mathbf r^N exp\left\{ -\beta  \left[ \sum_{i=1}^{N}p_i^2/(2m_i)+\mathcal{U}(\mathbf r^{ N})\right] \right\}}$$
 
 
