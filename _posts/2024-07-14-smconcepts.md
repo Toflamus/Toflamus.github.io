@@ -3,7 +3,7 @@ layout: distill
 title: Concepts of Statistical Mechanics in molecular simulation
 date: 2024-07-14 8:00:00
 description: A quick recap of the brief framework, concepts and notations in statistical mechanics for molecular simulation, (MD,MC).  
-tags: md statistical_mechanics
+tags: md statistical_mechanics longposts
 categories: md statistical_mechanics
 
 bibliography: 2024-07-14-umbrellasampling.bib
@@ -113,14 +113,14 @@ $$P_i = \frac{\exp(-E_i/k_BT)}{\sum_j \exp(-E_j/k_BT)} $$
 ### Energy relations and partition function
 
 Now let's get the formula for average energy:  
-\[ \langle E \rangle = \sum_iE_iP_i \]
-\[ = \sum_i\frac{E_i\exp(-E_i/k_BT)}{\sum_j \exp(-E_j/k_BT)}\]  
-\[ = -\frac{\partial ln\sum_i\exp(-E_i/k_BT)}{\partial 1/k_BT}\]  
+$$ \langle E \rangle = \sum_iE_iP_i $$
+$$ = \sum_i\frac{E_i\exp(-E_i/k_BT)}{\sum_j \exp(-E_j/k_BT)}$$  
+$$ = -\frac{\partial ln\sum_i\exp(-E_i/k_BT)}{\partial 1/k_BT}$$  
 
 Now we can define the ***Partition function*** of *canonical ensembles*:  
 $$\mathcal{Def}: Q(N,V,T) = \sum_i\exp(-E_i/k_BT)$$
 
-\[ \langle E \rangle= -\frac{\partial lnQ}{\partial 1/k_BT}\]  
+$$ \langle E \rangle= -\frac{\partial lnQ}{\partial 1/k_BT}$$
 
 ***Helmholtz free energy*** relates to energy with:  
 
@@ -157,13 +157,15 @@ Taking this equation into consideration:
 
 $$\langle A \rangle= \sum_i\frac{\langle i|A| i \rangle \langle i|exp(-\mathcal{H}\beta)|i\rangle}{\sum_j \exp(-E_j/k_BT)}$$
 
-Because the orthogonality or eigenfunctions ($| i \rangle \langle i| = \mathbb I$)  
+Because the orthogonality or eigenfunctions $ | i \rangle \langle i| = \mathbb I$
 
 $$\langle A \rangle= \sum_i\frac{\langle i|exp(-\mathcal{H}\beta)A|i\rangle}{\sum_j \langle j|exp(-\mathcal{H}\beta)|j\rangle}$$
 
 $$= \frac{Tr(exp(-\mathcal{H}\beta)A)}{Tr(exp(-\mathcal{H}\beta))}$$
 
-Where the $Tr$ denotes the trace of the matrix $[exp(-\mathcal{H\beta})A]_{ij} = \langle i|exp(-\mathcal{H}\beta)A|j\rangle$  
+Where the $Tr$ denotes the trace of the matrix 
+
+$$[exp(-\mathcal{H\beta})A]_{ij} = \langle i|exp(-\mathcal{H}\beta)A|j\rangle$$  
 
 Because $\mathcal{H} = \mathcal{K} + \mathcal{U}$, in which $\mathcal{K}$ is a function of momentum eigenfunction and $\mathcal{U}$ is a function of coordinate eigenfunction, what we really want to do is to simplify the equation by variable separation:  
 
@@ -181,12 +183,13 @@ $$Tr exp(\mathcal{-\beta H}) = \sum_{r,k} \langle r|e^{-\beta \mathcal{U}}|r\ran
 
 Note:  
 
-$$\langle r|e^{-\beta \mathcal{U}}|r\rangle = exp[-\beta \mathcal{U}(\mathbf r^{ N})]$$
-$$\langle k|e^{-\beta \mathcal{K}}|k\rangle = exp[-\beta \sum_{i=1}^{N}p_i^2/(2m_i)]$$
+$$\langle r|e^{-\beta \mathcal{U}}|r\rangle = exp[-\beta \mathcal{U}(\mathbf r^{ N})]$$  
 
-$$p_i = \hbar k_i$$
+$$\langle k|e^{-\beta \mathcal{K}}|k\rangle = exp[-\beta \sum_{i=1}^{N}p_i^2/(2m_i)]$$  
 
-$$\langle r|k\rangle\langle k|r\rangle = 1/V^N$$
+$$p_i = \hbar k_i$$  
+
+$$\langle r|k\rangle\langle k|r\rangle = 1/V^N$$  
 
 Where $V$ is the volume of the system and the $N$ is the number of the particles. Thus the Partition function for classical system can be:  
 
@@ -214,9 +217,11 @@ Now we can define the ***configurational integral*** as:
 $$\mathcal{Def}: Z(N,V,T) = \int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$  
 
 Now we can also define the proability of finding a system in a particular configuration $\mathbf{r}^N$ is:  
-$$\mathcal{N}(\mathbf{r}^N) = \frac{1}{Z(N,V,T)}  \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp   \left[-\beta \mathcal{U}(\mathbf{r'}^{ N})\right]$$
-$$= \frac{1}{Z(N,V,T)} exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})\right] \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)$$
+
+$$\mathcal{N}(\mathbf{r}^N) = \frac{1}{Z(N,V,T)}  \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp   \left[-\beta \mathcal{U}(\mathbf{r'}^{ N})\right]$$  
+
+$$= \frac{1}{Z(N,V,T)} exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})\right] \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)$$  
 
 If the ensemble average of a quality $A(\mathbf r^N)$ only depends on the cooridnates, then:  
 
-$$\langle A \rangle = \frac{1}{Z(N,V,T)}  \int  d\mathbf r^N A(\mathbf r^N)exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$
+$$\langle A \rangle = \frac{1}{Z(N,V,T)}  \int  d\mathbf r^N A(\mathbf r^N)exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$  
