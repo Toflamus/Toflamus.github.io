@@ -27,8 +27,4 @@ This is an overview and recap from the book of Frenkel and Daan.<d-cite key="und
 
 This figure demostrates 2 main ways of computation of free energy. The first one is thermodynamic integration(TI), the second one is the Histogram method.  
 
-## Notations of Statistic Mechanics
-
-
-
-The TI method is easy to understand
+The TI method is easy to understand, people who did *Physical Chemistry* are good at establish an imaginary reversible route from state $1$ to state $2$. Since the free energy is a state property, it can be easily calculate by integration from one state to another state. However, in the textbook<d-cite key="jinnouchi_machine_2024"></d-cite> the TI method only concerns Canonical ensemble and another newly published paper is attached for other systemwe will mainly focus on 
