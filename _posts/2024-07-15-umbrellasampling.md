@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: From umbrella sampling to MBAR
-date: 2024-07-14 9:00:00
+date: 2024-07-15 9:00:00
 description: This post mainly focuses on the histogram method for free energy calculation on reaction coordinate (order parameter) by MD. Starting from biased sampling to umbrella sampling till the advanced multistate data processing method(Multistate Bennett Acceptance ratio, MBAR).  
 tags: advanced-transforms algorithms longposts
 categories: algorithms
