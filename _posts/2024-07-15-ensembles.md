@@ -10,24 +10,68 @@ bibliography: 2024-07-14-umbrellasampling.bib
 
 toc:
   - name: Summary table
+  - subsections:
+    - name: Table 1 Micro-canonical
+    - name: Table 2 Canonical
+    - name: Table 3 Isobaric-isothermal
+    - name: Table 4 Grand-canonical
   - name: Derivations of partiion functions and other properties
   - subsections: 
     - name: Canonical ensemble 
     - name: Isobaric-isothermol ensemble
     - name: Grand-canonical ensemble
+  - name: Appendix
 ---
 
 ## Summary table
 
-| Ensembles | Micro-canonical | Canonical | Isobaric-isothermal | Grand-canonical |  
-| :----------- | :------------: | :------------: | :------------: |  :------------: |  
-| **Comment**      |    This is just like to give a constrain on on Canonical ensenmble on the hyperplane of $\mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) = E$    | Partition function |   | It is called Grand-canonical because from the formula of the partition function, the grand-canonical seems like the summation of many canonical ensemble.  
-|**Const parameters**| $N,V,E$ | $N, V, T$| $N, P, T$|$\mu, V, T$|
-| **Partition function**     |    $$\Omega_{E,V,N} = \frac{1}{h^{3N}N!}\int  d\mathbf p^N d\mathbf r^N \delta(\mathcal{H}(\mathbf{p}^N, \mathbf{r}^N)-E)$$    | $$Q_{N,V,T} =\frac{1}{h^{dN} N!} \int d\mathbf p^N d\mathbf r^N exp\left[ -\beta  \mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) \right]$$ |  $$Q_{N,P,T} =\frac{P}{h^{dN} N!} \int  dV' exp   \left(-\beta PV'\right)\int d\mathbf p^N d\mathbf r^N exp\left[ -\beta  \mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) \right]$$ |  |
-|**Partition function in configurational space**|  | $\Lambda = \sqrt{\frac{h^2\beta}{2\pi m}}$ $$Q = \frac{1}{\Lambda^{3N} N!} \int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$|$$Q(N,P,T) = \frac{P}{\Lambda^{3N} N!} \int  dV' exp   \left(-\beta PV'\right)\int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$|$$\Xi(\mu,V,T) = \sum_{N' = 0}^{+\infty}\frac{exp   \left(N'\mu\beta\right)}{\Lambda^{3N'} N'!}  \int  d\mathbf r^{N'} exp   \left[-\beta \mathcal{U}(\mathbf r^{N'})\right]$$ $$= \sum_{N' = 0}^{+\infty}exp   \left(N'\mu\beta\right)e^{-\beta F(N',V,T)}$$|
-|**Probability to find a state**|  $1/\Omega$   |$$P_1(E_i, V_1, T) \propto exp(-\beta E_i)$$$$P_i = \frac{\exp(-E_i/k_BT)}{\sum_j \exp(-E_j/k_BT)} $$  |   $$P_1(E_i,V_j)  \frac{exp(-\beta E_i-V_jP\beta)}{\sum_k\int dV' exp(-\beta E_k-V'P\beta)}$$ $$P_1(E_i, V_j, T) \propto exp(-\beta E_i-V_jP\beta)$$  | $$P_1(E_i,N_j)  = \frac{exp(-\beta E_i+N_j\mu\beta)}{\sum_k\sum_{n = 0}^{N} exp(-\beta E_k+n\mu\beta)}$$ $$P_1(E_i, N_j, T) \propto exp(-\beta E_i+N_j\mu\beta)$$|
-| **Probability to find a configuration**$$\mathcal N$$       |       | $$\mathcal{N}(\mathbf{r}^N) = \frac{1}{Z(N,V,T)}  \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp   \left[-\beta \mathcal{U}(\mathbf{r'}^{ N})\right]$$  $$\mathcal{N}(\mathbf{r}^N) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})\right] $$ |  $$\mathcal{N}(\mathbf{r}^N,V) = \frac{1}{Z(N,P,T)}  \int_{V'}dV'\delta(V-V')\int_{\mathbf{r'}}  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp\left[-\beta \mathcal{U}(\mathbf{r'}^{ N})-V'P\beta\right]$$ $$\mathcal{N}(\mathbf{r}^N,V) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})-VP\beta\right] $$  |  $$\mathcal{N}(\mathbf{r}^N,N) =   \sum_{N'} \frac{1}{Z(N',\mu,T)}\delta(N-N')\int_{\mathbf{r'}}  d\mathbf{r'}^{N'} \delta(\mathbf{r}^{N'}-\mathbf{r'}^{N'})exp\left[-\beta \mathcal{U}(\mathbf{r'}^{N'})+N'\mu\beta\right]$$ $$\mathcal{N}(\mathbf{r}^N,N) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})+N\mu\beta\right]$$   |
-|**Free energy relationship**| | $$\beta F = -\ln Q(N,V,T)$$ | $$\beta G = -\ln Q(N,P,T)$$| Grand potential $\Phi$ $$\beta \Phi = \beta(F-N\mu) = \ln \Xi$$|  
+### Table 1 Micro-canonical
+
+| Ensembles | Micro-canonical |
+| :----------- | :------------: |
+| **Comment**      |    This is just like to give a constrain on on Canonical ensenmble on the hyperplane of $\mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) = E$    |
+|**Const parameters**| $N,V,E$ |
+| **Partition function**     |    $$\Omega_{E,V,N} = \frac{1}{h^{3N}N!}\int  d\mathbf p^N d\mathbf r^N \delta(\mathcal{H}(\mathbf{p}^N, \mathbf{r}^N)-E)$$    |
+|**Partition function in configurational space**|  |
+|**Probability to find a state**|  $1/\Omega$   |
+| **Probability to find a configuration**$$\mathcal N$$       |       |
+|**Free energy relationship**| |
+
+### Table 2 Canonical
+
+| Ensembles  | Canonical |
+| :-----------  | :------------: |
+| **Comment**      | Partition function 
+|**Const parameters**| $N, V, T$|
+| **Partition function**    | $$Q_{N,V,T} =\frac{1}{h^{dN} N!} \int d\mathbf p^N d\mathbf r^N exp\left[ -\beta  \mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) \right]$$ |
+|**Partition function in configurational space**| $\Lambda = \sqrt{\frac{h^2\beta}{2\pi m}}$ $$Q = \frac{1}{\Lambda^{3N} N!} \int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$|
+|**Probability to find a state** |$$P_1(E_i, V_1, T) \propto exp(-\beta E_i)$$$$P_i = \frac{\exp(-E_i/k_BT)}{\sum_j \exp(-E_j/k_BT)} $$  |
+| **Probability to find a configuration**$$\mathcal N$$   | $$\mathcal{N}(\mathbf{r}^N) = \frac{1}{Z(N,V,T)}  \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp   \left[-\beta \mathcal{U}(\mathbf{r'}^{ N})\right]$$  $$\mathcal{N}(\mathbf{r}^N) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})\right] $$ |
+|**Free energy relationship**| $$\beta F = -\ln Q(N,V,T)$$ |
+
+### Table 3 Isobaric-isothermal
+
+| Ensembles  | Isobaric-isothermal |
+| :------------: | :------------: |  
+| **Comment** |   |
+|**Const parameters**| $N, P, T$|
+| **Partition function**    |  $$Q_{N,P,T} =\frac{P}{h^{dN} N!} \int  dV' exp   \left(-\beta PV'\right)\int d\mathbf p^N d\mathbf r^N exp\left[ -\beta  \mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) \right]$$ |
+|**Partition function in configurational space**| $$Q(N,P,T) = \frac{P}{\Lambda^{3N} N!} \int  dV' exp   \left(-\beta PV'\right)\int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$|
+|**Probability to find a state** |  $$P_1(E_i,V_j)  \frac{exp(-\beta E_i-V_jP\beta)}{\sum_k\int dV' exp(-\beta E_k-V'P\beta)}$$ $$P_1(E_i, V_j, T) \propto exp(-\beta E_i-V_jP\beta)$$  |
+| **Probability to find a configuration**$$\mathcal N$$   |  $$\mathcal{N}(\mathbf{r}^N,V) = \frac{1}{Z(N,P,T)}  \int_{V'}dV'\delta(V-V')\int_{\mathbf{r'}}  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp\left[-\beta \mathcal{U}(\mathbf{r'}^{ N})-V'P\beta\right]$$ $$\mathcal{N}(\mathbf{r}^N,V) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})-VP\beta\right] $$  |
+|**Free energy relationship** | $$\beta G = -\ln Q(N,P,T)$$|
+
+### Table 4 Grand-canonical
+
+| Ensembles  | Grand-canonical |  
+| :------------: |  :------------: |  
+| **Comment**  | It is called Grand-canonical because from the formula of the partition function, the grand-canonical seems like the summation of many canonical ensemble.  |
+|**Const parameters**|$\mu, V, T$|
+| **Partition function**    |    |
+|**Partition function in configurational space**|$$\Xi(\mu,V,T) = \sum_{N' = 0}^{+\infty}\frac{exp   \left(N'\mu\beta\right)}{\Lambda^{3N'} N'!}  \int  d\mathbf r^{N'} exp   \left[-\beta \mathcal{U}(\mathbf r^{N'})\right]$$ $$= \sum_{N' = 0}^{+\infty}exp   \left(N'\mu\beta\right)e^{-\beta F(N',V,T)}$$|
+|**Probability to find a state** | $$P_1(E_i,N_j)  = \frac{exp(-\beta E_i+N_j\mu\beta)}{\sum_k\sum_{n = 0}^{N} exp(-\beta E_k+n\mu\beta)}$$ $$P_1(E_i, N_j, T) \propto exp(-\beta E_i+N_j\mu\beta)$$|
+| **Probability to find a configuration**$$\mathcal N$$   |  $$\mathcal{N}(\mathbf{r}^N,N) =   \sum_{N'} \frac{1}{Z(N',\mu,T)}\delta(N-N')\int_{\mathbf{r'}}  d\mathbf{r'}^{N'} \delta(\mathbf{r}^{N'}-\mathbf{r'}^{N'})exp\left[-\beta \mathcal{U}(\mathbf{r'}^{N'})+N'\mu\beta\right]$$ $$\mathcal{N}(\mathbf{r}^N,N) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})+N\mu\beta\right]$$   |
+|**Free energy relationship** | Grand potential $\Phi$ $$\beta \Phi = \beta(F-N\mu) = \ln \Xi$$|  
 
 ## Derivations of partiion functions and other properties
 
@@ -151,3 +195,16 @@ $$\mathcal{N}(\mathbf{r}^N,N) =   \sum_{N'} \frac{1}{Z(N',\mu,T)}\delta(N-N')\in
 $$= \frac{1}{Z(N,\mu,T)} exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})+N\mu\beta\right]  \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)$$  
 
 $$\mathcal{N}(\mathbf{r}^N,N) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})+N\mu\beta\right]$$  
+
+## Appendix
+
+| Ensembles | Micro-canonical | Canonical | Isobaric-isothermal | Grand-canonical |  
+| :----------- | :------------: | :------------: | :------------: |  :------------: |  
+| **Comment**      |    This is just like to give a constrain on on Canonical ensenmble on the hyperplane of $\mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) = E$    | Partition function |   | It is called Grand-canonical because from the formula of the partition function, the grand-canonical seems like the summation of many canonical ensemble.  
+|**Const parameters**| $N,V,E$ | $N, V, T$| $N, P, T$|$\mu, V, T$|
+| **Partition function**     |    $$\Omega_{E,V,N} = \frac{1}{h^{3N}N!}\int  d\mathbf p^N d\mathbf r^N \delta(\mathcal{H}(\mathbf{p}^N, \mathbf{r}^N)-E)$$    | $$Q_{N,V,T} =\frac{1}{h^{dN} N!} \int d\mathbf p^N d\mathbf r^N exp\left[ -\beta  \mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) \right]$$ |  $$Q_{N,P,T} =\frac{P}{h^{dN} N!} \int  dV' exp   \left(-\beta PV'\right)\int d\mathbf p^N d\mathbf r^N exp\left[ -\beta  \mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) \right]$$ |  |
+|**Partition function in configurational space**|  | $\Lambda = \sqrt{\frac{h^2\beta}{2\pi m}}$ $$Q = \frac{1}{\Lambda^{3N} N!} \int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$|$$Q(N,P,T) = \frac{P}{\Lambda^{3N} N!} \int  dV' exp   \left(-\beta PV'\right)\int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$|$$\Xi(\mu,V,T) = \sum_{N' = 0}^{+\infty}\frac{exp   \left(N'\mu\beta\right)}{\Lambda^{3N'} N'!}  \int  d\mathbf r^{N'} exp   \left[-\beta \mathcal{U}(\mathbf r^{N'})\right]$$ $$= \sum_{N' = 0}^{+\infty}exp   \left(N'\mu\beta\right)e^{-\beta F(N',V,T)}$$|
+|**Probability to find a state**|  $1/\Omega$   |$$P_1(E_i, V_1, T) \propto exp(-\beta E_i)$$$$P_i = \frac{\exp(-E_i/k_BT)}{\sum_j \exp(-E_j/k_BT)} $$  |   $$P_1(E_i,V_j)  \frac{exp(-\beta E_i-V_jP\beta)}{\sum_k\int dV' exp(-\beta E_k-V'P\beta)}$$ $$P_1(E_i, V_j, T) \propto exp(-\beta E_i-V_jP\beta)$$  | $$P_1(E_i,N_j)  = \frac{exp(-\beta E_i+N_j\mu\beta)}{\sum_k\sum_{n = 0}^{N} exp(-\beta E_k+n\mu\beta)}$$ $$P_1(E_i, N_j, T) \propto exp(-\beta E_i+N_j\mu\beta)$$|
+| **Probability to find a configuration**$$\mathcal N$$       |       | $$\mathcal{N}(\mathbf{r}^N) = \frac{1}{Z(N,V,T)}  \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp   \left[-\beta \mathcal{U}(\mathbf{r'}^{ N})\right]$$  $$\mathcal{N}(\mathbf{r}^N) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})\right] $$ |  $$\mathcal{N}(\mathbf{r}^N,V) = \frac{1}{Z(N,P,T)}  \int_{V'}dV'\delta(V-V')\int_{\mathbf{r'}}  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp\left[-\beta \mathcal{U}(\mathbf{r'}^{ N})-V'P\beta\right]$$ $$\mathcal{N}(\mathbf{r}^N,V) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})-VP\beta\right] $$  |  $$\mathcal{N}(\mathbf{r}^N,N) =   \sum_{N'} \frac{1}{Z(N',\mu,T)}\delta(N-N')\int_{\mathbf{r'}}  d\mathbf{r'}^{N'} \delta(\mathbf{r}^{N'}-\mathbf{r'}^{N'})exp\left[-\beta \mathcal{U}(\mathbf{r'}^{N'})+N'\mu\beta\right]$$ $$\mathcal{N}(\mathbf{r}^N,N) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})+N\mu\beta\right]$$   |
+|**Free energy relationship**| | $$\beta F = -\ln Q(N,V,T)$$ | $$\beta G = -\ln Q(N,P,T)$$| Grand potential $\Phi$ $$\beta \Phi = \beta(F-N\mu) = \ln \Xi$$|  
+
