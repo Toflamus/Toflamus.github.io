@@ -163,7 +163,7 @@ $$\langle A \rangle= \sum_i\frac{\langle i|exp(-\mathcal{H}\beta)A|i\rangle}{\su
 
 $$= \frac{Tr(exp(-\mathcal{H}\beta)A)}{Tr(exp(-\mathcal{H}\beta))}$$
 
-Where the $Tr$ denotes the trace of the matrix 
+Where the $Tr$ denotes the trace of the matrix  
 
 $$[exp(-\mathcal{H\beta})A]_{ij} = \langle i|exp(-\mathcal{H}\beta)A|j\rangle$$  
 
