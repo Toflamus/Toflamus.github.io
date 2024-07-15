@@ -106,7 +106,7 @@ When $E \rarr +\infty$:
 
 $$P_i \propto \exp(-E_i/k_BT) $$  
 
-After normalization, the equation becomes ***Boltzmann distribution***: 
+After normalization, the equation becomes ***Boltzmann distribution***:  
 
 $$P_i = \frac{\exp(-E_i/k_BT)}{\sum_j \exp(-E_j/k_BT)} $$  
 

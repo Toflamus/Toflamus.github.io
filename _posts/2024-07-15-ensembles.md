@@ -21,23 +21,63 @@ toc:
 | :----------- | :------------: | :------------: | :------------: |  :------------: |  
 | **Comment**      |    This is just like to give a constrain on on Canonical ensenmble on the hyperplane of $\mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) = E$    | Partition function |   |  
 |**Const parameters**| $N,V,E$ | $N, V, T$| $N, P, T$|$\mu, V, T$|
-| **Partition function **     |    $$\Omega_{E,V,N} = \frac{1}{h^{3N}N!}\int  d\mathbf p^N d\mathbf r^N \delta(\mathcal{H}(\mathbf{p}^N, \mathbf{r}^N)-E)$$    | $$Q_{N,V,T} =\frac{1}{h^{dN} N!} \int d\mathbf p^N d\mathbf r^N exp\left[ -\beta  \mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) \right]$$ |   |  
-| **Probability** $$\mathcal N$$       |    center 3    |       right 3 |  lol |  geg |
+| **Partition function**     |    $$\Omega_{E,V,N} = \frac{1}{h^{3N}N!}\int  d\mathbf p^N d\mathbf r^N \delta(\mathcal{H}(\mathbf{p}^N, \mathbf{r}^N)-E)$$    | $$Q_{N,V,T} =\frac{1}{h^{dN} N!} \int d\mathbf p^N d\mathbf r^N exp\left[ -\beta  \mathcal{H}(\mathbf{p}^N, \mathbf{r}^N) \right]$$ |   |
+|**Partition function in configurational space**|  | $\Lambda = \sqrt{\frac{h^2\beta}{2\pi m}}$ $$Q = \frac{1}{\Lambda^{3N} N!} \int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$|
+|**Probability to find a state**|     |$$P_1(E_i, V_1, T) \propto exp(-\beta E_i)$$$$P_i = \frac{\exp(-E_i/k_BT)}{\sum_j \exp(-E_j/k_BT)} $$|3|4|
+| **Probability to find a configuration**$$\mathcal N$$       |       | $$\mathcal{N}(\mathbf{r}^N) = \frac{1}{Z(N,V,T)}  \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp   \left[-\beta \mathcal{U}(\mathbf{r'}^{ N})\right]$$  $$\mathcal{N}(\mathbf{r}^N) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})\right] $$ |  lol |  geg |
 |**Free energy relationship**| | $$\beta F = -\ln Q(N,V,T)$$ | $$\beta G = -\ln Q(N,P,T)$$| Grand potential $\Phi$ $$\beta \Phi = \beta(F-N\mu) = \ln \Xi$$|  
 
-## Derivations of partiion functions
+## Derivations of partiion functions and other properties
 
-The derivations are all based on the fact that a system is in ***weak interaction*** with another large environment. So we can use the taylor expansion of $\ln \Omega(N,V,T)$ to derive the partition function. As I wrote in the previous blog:  
+The derivations are all based on the fact that a system is in ***weak interaction*** with another large environment. So we can use the taylor expansion of $\ln \Omega(N,V,T)$ to derive the partition function.:  
 
-The derivation can be devided into 2 steps.  
+The derivation of partition function can be devided into 5 steps.  
 
-* On equilibrium with some bath
-* Do Taylor expansion on $E_i = 0$
+* Be on equilibrium with some bath
+* Do Taylor expansion on of $\ln \Omega(N,V,T)$ $E_i = 0$
+* Use symmetry and the properties of identical particles
+* Analytically express momentum integral
+* Express partition function by configurational integral
+
+The last three steps are basically the same and tedious. The last three steps can be found in the [previous blog](https://toflamus.github.io/blog/2024/smconcepts/#statistical-average)  
+
+The derivation of density of a configuration is usually be done by using Dirac $\delta$ function.  
+
+$$\mathcal{N}(\mathbf{r}^N) = \frac{1}{Z} \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp   \left[-\beta \mathcal{U}(\mathbf{r'}^{ N})\right]$$  
 
 ### Canonical ensemble  
 
-This on is classic:  
+This one is classic:  
 
-***Firstly: On equilibrium with heat bath***
+***Firstly***, on equilibrium with a **heat** bath.  
 
+For constant $N, V, T$, the system is a closed system, only exchanging energy with environment by heat. Assuming that the heat bath is system $2$ and the target system is system $1$.  
 
+When the system **2** is infinitely large. It is so large that the $E_i$ seems to be 0 compare to $E-E_i$. So we can always expand $f(E_i) = \ln\Omega_2(E-E_i)$ at $E_i \sim 0$, where $i$ stants for the $i^{th}$ state.  
+
+***Secondly***, do Taylor expansion and take a limit on $E\rarr +\infty$:  
+
+$$\ln\Omega_2(E-E_i, V_2, T) =\ln\Omega_2(E, V_2,T) - E_i\frac{\partial \ln\Omega_2(E)}{\partial E} + \mathcal{O}(1/E)$$
+
+Because the $V$ and $T$ do not change, they will not be writen in the equation anymore.  
+
+$$\ln\Omega_2(E-E_i) \approx \ln\Omega_2(E) - E_i\frac{\partial \ln\Omega_2(E)}{\partial E} $$
+
+$$P_1(E_i) = P_2(E-E_i) \propto \frac{\Omega_2(E-E_i)}{\Omega_2(E,)} = exp(-\beta E_i)$$
+
+$$P_1(E_i, V_1, T) \propto exp(-\beta E_i)$$
+
+The probebility to find system $1$ with an energy $E_i$ is the Boltzmann distribution:  
+
+$$P_i = \frac{\exp(-E_i/k_BT)}{\sum_j \exp(-E_j/k_BT)} $$  
+
+Now after the next three steps, the partition function in configurational space can be expressed as:  
+
+$$Q = \frac{1}{\Lambda^{3N} N!} \int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$
+
+As I mentioned before, the density of finding a state can be easily done by $\delta$ function.
+$$\mathcal{N}(\mathbf{r}^N) = \frac{1}{Z(N,V,T)}  \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp   \left[-\beta \mathcal{U}(\mathbf{r'}^{ N})\right]$$  
+
+$$= \frac{1}{Z(N,V,T)} exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})\right] \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)$$  
+
+$$\mathcal{N}(\mathbf{r}^N) \propto  exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})\right] $$
