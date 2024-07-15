@@ -18,8 +18,7 @@ toc:
     - name: From const T to Boltzmann distribution
     - name: Energy relations and partition function
     - name: Statistical Average
-  - name: 
-  - name: 
+  - name: Configurational integral and probability density
 ---
 
 ## Assumptions and concepts
@@ -197,4 +196,27 @@ The term $N!$ appears because of the all same particles in this system. This rel
 
 $$\langle A \rangle = \frac{\int d\mathbf p^N d\mathbf r^N A(\mathbf p^N ,\mathbf r^N)exp\left\{ -\beta  \left[ \sum_{i=1}^{N}p_i^2/(2m_i)+\mathcal{U}(\mathbf r^{ N})\right] \right\}}{\int d\mathbf p^N d\mathbf r^N exp\left\{ -\beta  \left[ \sum_{i=1}^{N}p_i^2/(2m_i)+\mathcal{U}(\mathbf r^{ N})\right] \right\}}$$
 
+## Configurational integral and probability density
 
+As we assumed before the integration over the potential does not depend on momentum. Thus we can now integrate momentum analytically. This may have different forms for different systems. However, we assume that the 3-d momentum is symmetric and every atom is the same.  
+
+$$\int d\mathbf p^N exp\left[ -\beta \sum_i\frac{\mathbf{p}_i^N}{2m}\right] = \left[\int dp^N exp\left[ -\beta \sum_i\frac{p^N}{2m}\right]\right]^{3N} = \left(\frac{2\pi m}{\beta}\right)^{\frac{3N}{2}}$$
+
+Assuming:  
+
+$$\Lambda = \sqrt{\frac{h^2\beta}{2\pi m}}$$
+
+The partition function becomes:  
+
+$$Q = \frac{1}{\Lambda^{3N} N!} \int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$
+
+Now we can define the ***configurational integral*** as:  
+$$\mathcal{Def}: Z(N,V,T) = \int  d\mathbf r^N exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$  
+
+Now we can also define the proability of finding a system in a particular configuration $\mathbf{r}^N$ is:  
+$$\mathcal{N}(\mathbf{r}^N) = \frac{1}{Z(N,V,T)}  \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)exp   \left[-\beta \mathcal{U}(\mathbf{r'}^{ N})\right]$$
+$$= \frac{1}{Z(N,V,T)} exp\left[-\beta \mathcal{U}(\mathbf{r}^{ N})\right] \int  d\mathbf{r'}^N \delta(\mathbf{r}^N-\mathbf{r'}^N)$$
+
+If the ensemble average of a quality $A(\mathbf r^N)$ only depends on the cooridnates, then:  
+
+$$\langle A \rangle = \frac{1}{Z(N,V,T)}  \int  d\mathbf r^N A(\mathbf r^N)exp   \left[-\beta \mathcal{U}(\mathbf r^{ N})\right]$$
