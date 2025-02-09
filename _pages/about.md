@@ -2,16 +2,16 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Tsinghua University, University of Oxford </a>. OX1 2DL St' Peter's College. You can reach me by email. A man is never old when his regret replace his dream.
+subtitle: <a href='#'>Tsinghua University, University of Oxford </a>. Tsinghua University. You can reach me by email.
  
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>St' Peter's College</p>
-    <p>New inn hall street</p>
-    <p>OX1 2DL</p>
+    <p>Tsinghua University</p>
+    <p>Hai Dian, Beijing</p>
+    <p>PR China</p>
 
 news:  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
